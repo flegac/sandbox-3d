@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "sandbox-3d"
+version = "0.1.0"
+description = "Playing with 3D"
+authors = ["flegac <florent.legac@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+repository = "https://github.com/flegac/easy-stream"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+loguru = "*"
+tqdm = "*"
+easy-kit = "*"
+pydantic = "*"
+
+panda3d = "*"
+panda3d-gltf = "*"
+panda3d-simplepbr = "*"
+
+opensimplex = "*"
+opencv-python = "*"
+scipy = "*"
+meshzoo = "*"
+quaternion = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

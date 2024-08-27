@@ -1,0 +1,133 @@
+{
+  "transitions": [
+    {
+      "target": {
+        "state": [
+          {
+            "tags": "hips",
+            "hpr": {
+              "vec": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "knee",
+            "hpr": {
+              "vec": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "ankle",
+            "hpr": {
+              "vec": [
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      "duration_sec": 0.5
+    },
+    {
+      "target": {
+        "state": [
+          {
+            "tags": "hips",
+            "hpr": {
+              "vec": [
+                0,
+                -23,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "knee",
+            "hpr": {
+              "vec": [
+                0,
+                40,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "ankle",
+            "hpr": {
+              "vec": [
+                0,
+                -20,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      "duration_sec": 1
+    },
+    {
+      "target": {
+        "state": [
+          {
+            "tags": "hips",
+            "hpr": {
+              "vec": [
+                0,
+                -13,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "knee",
+            "hpr": {
+              "vec": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "ankle",
+            "hpr": {
+              "vec": [
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      "duration_sec": 0.5
+    },
+    {
+      "target": {
+        "state": [
+          {
+            "tags": "hips",
+            "hpr": {
+              "vec": [
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      "duration_sec": 0.5
+    }
+  ],
+  "loop": false
+}

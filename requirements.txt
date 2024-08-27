@@ -1,0 +1,18 @@
+
+loguru
+tqdm
+
+# 3d
+panda3d
+panda3d-gltf
+panda3d-simplepbr
+# types-panda3d
+
+pydantic
+
+#procedural
+opensimplex
+opencv-python
+scipy
+meshzoo
+quaternion

@@ -1,0 +1,122 @@
+{
+  "transitions": [
+    {
+      "target": {
+        "state": []
+      },
+      "duration_sec": 0.1
+    },
+    {
+      "target": {
+        "state": [
+          {
+            "tags": "spinal_disc",
+            "hpr": {
+              "vec": [
+                10,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "hips",
+            "hpr": {
+              "vec": [
+                0,
+                -80,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "knee",
+            "hpr": {
+              "vec": [
+                0,
+                130,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      "duration_sec": 0.25
+    },
+    {
+      "target": {
+        "state": [
+          {
+            "tags": "spinal_disc",
+            "hpr": {
+              "vec": [
+                -10,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "hips",
+            "hpr": {
+              "vec": [
+                0,
+                45,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "knee",
+            "hpr": {
+              "vec": [
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      "duration_sec": 0.5
+    },
+    {
+      "target": {
+        "state": [
+          {
+            "tags": "spinal_disc",
+            "hpr": {
+              "vec": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "hips",
+            "hpr": {
+              "vec": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "tags": "knee",
+            "hpr": {
+              "vec": [
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      "duration_sec": 0.25
+    }
+  ],
+  "loop": true
+}
