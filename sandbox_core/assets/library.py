@@ -86,7 +86,7 @@ logger.remove()
 logger.add(sys.stdout, level="INFO")
 
 
-MUSIC_ROOT = Path.home() / 'Documents/Music/Cool'
+MUSIC_ROOT = Path.home() / 'Documents/Data/Music/Cool'
 
 
 if __name__ == '__main__':

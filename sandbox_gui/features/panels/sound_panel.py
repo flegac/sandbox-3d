@@ -1,5 +1,4 @@
-from pathlib import Path
-
+from sandbox.configgg import ROOT_PATH
 from sandbox.my_base import base
 from sandbox_core.assets.library import Library, Query
 from sandbox_gui.base.config.frame_size import FrameSize
@@ -8,7 +7,7 @@ from sandbox_gui.base.layout.layout_factory import L
 from sandbox_gui.base.panel_list import PanelList
 from sandbox_gui.base.widget.slider import Slider
 
-MUSIC_ROOT = Path.home() / 'Documents/Music'
+MUSIC_ROOT = ROOT_PATH / 'Data/Music'
 
 
 def sound_panel(size: FrameSize):

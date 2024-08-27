@@ -13,7 +13,7 @@ classifiers = [
 repository = "https://github.com/flegac/easy-stream"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.12"
 loguru = "*"
 tqdm = "*"
 easy-kit = "*"
@@ -28,6 +28,9 @@ opencv-python = "*"
 scipy = "*"
 meshzoo = "*"
 quaternion = "*"
+dataclass-csv = "^1.4.0"
+pyyaml = "^6.0.2"
+toml = "^0.10.2"
 
 [build-system]
 requires = ["poetry-core"]
