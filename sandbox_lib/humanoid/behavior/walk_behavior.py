@@ -1,13 +1,13 @@
-import math
 from typing import override
 
+import math
 from pydantic import model_validator
 
+from procedural_gen.region.vec import Vec
 from sandbox_core.controls.params.float_param import FloatParam
 from sandbox_core.controls.params.vec_param import VecParam
 from sandbox_creature.behavior.behavior import Behavior
 from sandbox_creature.core.symmetry import Symmetry
-from procedural_gen.region.vec import Vec
 
 MAX_LATERAL_BALANCE = 1
 
@@ -40,6 +40,7 @@ class WalkBehavior(Behavior):
         ).with_param(
             'side', FloatParam(current=0, low=-1, high=1, max_speed=2)
         )
+        return self
 
     def hips(self, side: Symmetry):
         return self.skeleton.single_joint(f'hips {side.name}')

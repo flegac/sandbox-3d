@@ -5,8 +5,9 @@ from typing import override
 from loguru import logger
 
 from easy_kit.timing import time_func, timing
-from python_ecs.component import Signature
 from python_ecs.ecs import sim
+from python_ecs.signature import Signature
+from python_ecs.storage.database_api import DatabaseAPI
 from python_ecs.system import System
 from sandbox.my_base import base
 from sandbox_core.entity.health import Health
@@ -36,7 +37,7 @@ class CollisionSystem(System):
         return sim.find(PhysSystem)
 
     @override
-    def update_single(self, item: Collision):
+    def update_single(self, db: DatabaseAPI, item: Collision, dt: float):
         if item.health.hit_damage > 0:
             self.on_hit(item)
 
@@ -56,7 +57,7 @@ class CollisionSystem(System):
 
     @time_func
     def on_hit_damage(self, projectile: Collision, target: RigidBody):
-        health = target.entity.get(Health)
+        health = target.get(Health)
         if not health or not health.is_destructible():
             return
         damage = self.damage_multiplier * projectile.phys.kinetic_energy * projectile.health.hit_damage

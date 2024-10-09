@@ -1,5 +1,4 @@
 import sys
-
 from loguru import logger
 
 from easy_kit.timing import setup_timing
@@ -11,7 +10,8 @@ from sandbox_core.controls.follow_system import FollowSystem
 from sandbox_core.controls.params.float_param_system import ParamSystem
 from sandbox_core.controls.params.param_follow_system import ParamFollowSystem
 from sandbox_core.display.display_system import DisplaySystem
-from sandbox_core.entity.living_system import LivingSystem
+from sandbox_core.entity.health import HealthSystem
+from sandbox_core.entity.lifetime import LifeTimeSystem
 from sandbox_core.entity.shooter.shooter_system import ShooterSystem
 from sandbox_core.events.event_system import EventSystem
 from sandbox_core.light.light_system import LightSystem
@@ -59,7 +59,8 @@ def sim_init():
         SkeletonSystem(),
         FollowSystem(),
         ShooterSystem(),
-        LivingSystem(),
+        HealthSystem(),
+        LifeTimeSystem(),
 
         # core functions
         PhysSystem(),

@@ -2,10 +2,11 @@ from typing import override
 
 from direct.showbase.InputStateGlobal import inputState
 
-from python_ecs.component import Signature
+from python_ecs.signature import Signature
+from python_ecs.storage.database_api import DatabaseAPI
 from python_ecs.system import System
-from sandbox_core.controls.params.float_param import FloatParam
 from sandbox_core.controls.axis_config import AxisConfig
+from sandbox_core.controls.params.float_param import FloatParam
 
 
 class AxisSign(Signature):
@@ -17,7 +18,7 @@ class AxisSystem(System):
     _signature = AxisSign
 
     @override
-    def update_single(self, item: AxisSign):
+    def update_single(self, db: DatabaseAPI, item: AxisSign, dt: float):
         axis = item.axis
         param = item.param
 

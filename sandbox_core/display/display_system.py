@@ -2,7 +2,6 @@ from functools import cached_property
 from typing import override
 
 from easy_kit.timing import time_func, timing
-from python_ecs.entity_filter import EntityFilter
 from python_ecs.system import System
 from sandbox.my_base import base
 from sandbox_core.display.display import Display
@@ -13,7 +12,6 @@ from sandbox_lib.fog import MyFog
 
 class DisplaySystem(System):
     _signature = Display
-    _filter_strategy = EntityFilter.match_none
 
     @cached_property
     def node(self):
@@ -25,7 +23,7 @@ class DisplaySystem(System):
     @time_func
     @override
     def register(self, item: Display):
-        phys = item.entity.get(RigidBody)
+        phys = item.get(RigidBody)
 
         if phys:
             # FIXME: is it necessary ??

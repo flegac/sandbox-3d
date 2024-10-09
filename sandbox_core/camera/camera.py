@@ -30,5 +30,5 @@ class CameraConfig(Component):
         base.camLens.set_fov(self.fov)
         base.camLens.set_near_far(self.z_near, self.z_far)
         base.camera.reparent_to(self.translation_node)
-
+        return self
 

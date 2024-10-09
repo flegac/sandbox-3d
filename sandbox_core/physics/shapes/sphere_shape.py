@@ -21,3 +21,4 @@ class SphereShape(AbstractShape):
     @model_validator(mode='after')
     def post_init(self):
         self.size = Vec.cast(self.radius)
+        return self

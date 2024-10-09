@@ -7,14 +7,13 @@ from panda3d.bullet import BulletWorld, BulletDebugNode
 from panda3d.core import Vec3, NodePath, BitMask32
 
 from easy_kit.timing import time_func
-from python_ecs.entity_filter import EntityFilter
-from python_ecs.id_generator import IdGenerator
+from procedural_gen.region.vec import Vec
 from python_ecs.storage.database import Database
+from python_ecs.storage.id_generator import IdGenerator
 from python_ecs.system import System
 from sandbox.my_base import base
 from sandbox_core.physics.ray_collision import RayCollision
 from sandbox_core.physics.rigid_body import RigidBody
-from procedural_gen.region.vec import Vec
 
 
 class GroupPool:
@@ -42,7 +41,6 @@ class GroupPool:
 
 class PhysSystem(System):
     _signature = RigidBody
-    _filter_strategy = EntityFilter.match_none
 
     freeze_sim: bool = True
     sim_speed: int = 0
@@ -69,7 +67,7 @@ class PhysSystem(System):
         return world
 
     @override
-    def update_before(self, db: Database):
+    def update(self, db: Database, dt: float):
         dt = globalClock.getDt()
         self.world.do_physics(
             dt * 2 ** self.sim_speed,
@@ -77,11 +75,9 @@ class PhysSystem(System):
             1 / self.phys_update_rate_hertz
         )
 
-    @override
-    def update(self, db: Database):
         if self.freeze_sim:
             return
-        status = super().update(db)
+        status = super().update(db, dt)
         return status
 
     @time_func

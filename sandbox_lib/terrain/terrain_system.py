@@ -1,11 +1,9 @@
 from functools import cached_property
 from pathlib import Path
-from typing import override
 
 from easy_kit.timing import time_func, timing
 from procedural_gen.region.vec import Vec
 from python_ecs.ecs import sim
-from python_ecs.entity_filter import EntityFilter
 from python_ecs.storage.database import Database
 from python_ecs.system import System
 from sandbox_core.physics.rigid_body import RigidBody
@@ -16,7 +14,6 @@ from sandbox_lib.terrain.tiling import Coord, Tiling
 
 class TerrainSystem(System):
     _signature = TerrainArea
-    _filter_strategy = EntityFilter.match_none
 
     data_root: Path
     avatar: RigidBody = None
@@ -31,8 +28,7 @@ class TerrainSystem(System):
         terrain = self.grid.get(pos)
         return terrain.get_elevation(pos)
 
-    @override
-    def update_before(self, db: Database):
+    def update(self, db: Database, dt: float):
         avatar = self.avatar
         new_pos = avatar.pos
 

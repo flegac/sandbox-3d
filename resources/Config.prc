@@ -1,8 +1,8 @@
 window-title Sandbox GUI
 win-size 1600 900
 win-origin 20 20
-model-path C:\Users\Flo\Documents\workspace\sandbox-3d\resources
-model-path C:\Users\Flo\Documents\Data\model3d\
+model-path /home/flo/Documents/workspace/sandbox-3d/resources
+model-path /home/flo/Documents/Data/model3d
 
 show-frame-rate-meter true
 # cursor-hidden true

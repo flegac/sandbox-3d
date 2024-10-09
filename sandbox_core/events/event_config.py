@@ -47,7 +47,8 @@ class EventConfig(Component):
         self.is_enabled = True
         logger.info(f'enable: {self}')
 
-        sim.new_entity(self)
+        sim.create_all([self])
+        return self
 
     def __repr__(self):
         return f'{self.__class__.__name__}(enabled: {self.is_enabled}, {set(self.mapping.keys())}, actions: {set(self.actions.keys())})'

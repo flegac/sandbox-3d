@@ -25,7 +25,7 @@ class EntityNode(MyModel):
     def new_entity(self):
         items = [self.phys, self.health, self.lifetime, self.display]
         items = list(filter(None, items))
-        sim.new_entity(items)
+        sim.create_all([items])
         return self
 
     async def new_entity_async(self):

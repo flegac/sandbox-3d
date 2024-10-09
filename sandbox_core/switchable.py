@@ -9,11 +9,13 @@ class Switchable(ABC):
         if status is None:
             status = not self.is_active
         # logger.info(f'{self.__class__.__name__}: is_active={status}')
-        self.is_active = status
-        if self.is_active:
-            self._enable()
-        else:
-            self._disable()
+
+        # TODO
+        # self.is_active = status
+        # if self.is_active:
+        #     self._enable()
+        # else:
+        #     self._disable()
         return self
 
     @abstractmethod

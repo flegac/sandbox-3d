@@ -43,7 +43,7 @@ class ModeManager(ControlMode):
                 'escape': self.panels.switch,
             }),
             EventConfig(actions={
-                'mouse1': ShooterConfig.handler(list(sim.db.iter(ShooterConfig))),
+                'mouse1': ShooterConfig.handler(sim.db.get_table(ShooterConfig).list_all()),
             }),
 
             EventConfig(mapping={

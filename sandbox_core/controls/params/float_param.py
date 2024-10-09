@@ -1,9 +1,9 @@
 from pydantic import Field
 
 from easy_kit.timing import time_func
+from easy_raster.utils.float_utils import clamp_abs, clamp
 from python_ecs.component import Component
 from sandbox_core.controls.params.float_sequence import FloatSequence
-from image_io.float_utils import clamp, clamp_abs
 
 
 class FloatParam(Component):

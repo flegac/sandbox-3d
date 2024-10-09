@@ -1,15 +1,17 @@
-import math
 import uuid
 from functools import cached_property
 from pathlib import Path
 
+import math
 from panda3d.core import PNMImage, Filename
 from pydantic import Field
 
 from easy_kit.timing import time_func
-from image_io.buffer_util import BufferUtil
-from image_io.image_io import ImageIO
-from image_io.resolution import Resolution
+from easy_raster.model.resolution import Resolution
+from easy_raster.raster_io import RasterIO
+from easy_raster.transform.buffer_util import BufferUtil
+from procedural_gen.region.region import Region
+from procedural_gen.region.vec import Vec
 from python_ecs.component import Component
 from sandbox_core.display.display import Display
 from sandbox_core.display.terrain_model import TerrainModel
@@ -18,8 +20,6 @@ from sandbox_core.physics.rigid_body import RigidBody
 from sandbox_core.physics.shapes.heightfield_shape import HeightfieldShape
 from sandbox_core.transform import ETransform
 from sandbox_lib.terrain.model_queries import TREES, GRASS, ROCKS
-from procedural_gen.region.region import Region
-from procedural_gen.region.vec import Vec
 
 
 class TerrainArea(Component):
@@ -38,12 +38,13 @@ class TerrainArea(Component):
     def entity(self):
         width, height = self.texture_size
 
-        buffer = ImageIO.read(self.height_path)
-        buffer = BufferUtil.resize(buffer, self.resolution, seamless=True)
+        buffer = RasterIO.read(self.height_path, 0)
+        buffer = BufferUtil.resize(buffer, *self.resolution.raw(), seamless=True)
+        buffer = buffer.astype('uint8')
         path = Path.home() / f'.tmp/{uuid.uuid4()}.png'
         path.parent.mkdir(parents=True, exist_ok=True)
 
-        ImageIO.write(path, buffer)
+        RasterIO.write(path, buffer)
 
         model = TerrainModel(
             height_path=path,

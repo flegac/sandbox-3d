@@ -39,3 +39,4 @@ class Spines(MyModel):
             if section.offset < offset:
                 raise ValueError(f'Unsorted section offsets: {self.sections}')
             offset = section.offset
+        return self

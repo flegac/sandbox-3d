@@ -6,7 +6,7 @@ from panda3d.bullet import BulletBodyNode, BulletHeightfieldShape, ZUp
 from panda3d.core import PNMImage, Filename
 from pydantic import Field
 
-from image_io.image_io import ImageIO
+from easy_raster.raster_io import RasterIO
 from sandbox_core.physics.shapes.abstract_shape import AbstractShape
 
 ROOT = Path.home() / '.sandbox'
@@ -22,7 +22,7 @@ class HeightfieldShape(AbstractShape):
         shape = HeightfieldShape()
         path = shape.elevation_path
 
-        ImageIO.write(path, np.zeros(shape=(y, x)))
+        RasterIO.write(path, np.zeros(shape=(y, x)))
 
         return shape
 

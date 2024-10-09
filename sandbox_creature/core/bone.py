@@ -83,3 +83,4 @@ class Bone(Anatomic):
         for name, a in self.anchors.items():
             a._bone = self
             a.name = name
+        return self

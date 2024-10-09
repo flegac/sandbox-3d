@@ -57,6 +57,7 @@ def main():
 
     # avatar = starship.phys
     avatar = skeleton.torso.phys
+
     sim.find(TerrainSystem).avatar = avatar
 
     # Viewport(skeleton.torso.phys.node)
@@ -65,7 +66,7 @@ def main():
 
     base.accept('i', stand_up.set_side)
 
-    sim.create([
+    sim.create_all([
         # light
         LightConfig(
             color_temperature=4700,
@@ -127,7 +128,7 @@ def main():
         for x in range(2)
         for y in range(2)
     ]
-    sim.create([
+    sim.create_all([
         *others,
         *[
             ComplexBehavior.from_states([

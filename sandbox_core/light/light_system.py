@@ -1,21 +1,22 @@
 import random
-import time
 from typing import override
 
+import time
 from panda3d.core import Vec3
 
+from procedural_gen.region.vec import Vec
 from python_ecs.ecs import sim
+from python_ecs.storage.database_api import DatabaseAPI
 from python_ecs.system import System
 from sandbox_core.display.display_system import DisplaySystem
 from sandbox_core.light.light import LightConfig
-from procedural_gen.region.vec import Vec
 
 
 class LightSystem(System):
     _signature = LightConfig
 
     @override
-    def update_single(self, light: LightConfig):
+    def update_single(self, db: DatabaseAPI, light: LightConfig, dt: float):
         now = time.time()
         if now - light.last_update < .1:
             return

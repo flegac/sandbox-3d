@@ -1,10 +1,10 @@
 import subprocess
-import sys
 from dataclasses import dataclass
 from pathlib import Path
 from pprint import pprint
 from typing import Callable
 
+import sys
 from direct.filter.CommonFilters import CommonFilters
 from direct.showbase.ShowBase import ShowBase
 from direct.showbase.ShowBaseGlobal import globalClock

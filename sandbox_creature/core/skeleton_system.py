@@ -1,5 +1,6 @@
 from typing import override
 
+from python_ecs.storage.database_api import DatabaseAPI
 from python_ecs.system import System
 from sandbox_creature.core.skeleton import Skeleton
 
@@ -16,7 +17,7 @@ class SkeletonSystem(System):
             joint.create()
 
     @override
-    def update_single(self, item: Skeleton):
+    def update_single(self, db: DatabaseAPI, item: Skeleton, dt: float):
         for name, param in item.config.params.items():
             param.play_sequence()
 
